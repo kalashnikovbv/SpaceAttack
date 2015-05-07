@@ -6,7 +6,10 @@ public class SettingsScript : MonoBehaviour
 {
 	public Toggle joystickToggle;
 	public Toggle tiltToggle;
+	public Toggle keysToggle;
+
 	public Toggle audioToggle;
+	public Slider controlSensitivitySlider;
 
 	enum ControllType {joystick, tilt, keys};
 	ControllType controllType = ControllType.joystick;
@@ -15,11 +18,32 @@ public class SettingsScript : MonoBehaviour
 
 	void Start () {
 
-		joystickToggle.isOn = true;
-		tiltToggle.isOn = false;
+	//	joystickToggle.isOn = true;
+	//	tiltToggle.isOn = false;
+	//	keysToggle.isOn = false;
 
-		PlayerPrefs.SetInt ("ControlType", (int) controllType);
-		PlayerPrefs.SetInt ("AudioEnabled", audioEnabled);
+	//	PlayerPrefs.SetInt ("ControlType", (int) controllType);
+	//	PlayerPrefs.SetInt ("AudioEnabled", audioEnabled);
+
+	//	PlayerPrefs.SetFloat ("ControlSensitivity", controlSensitivitySlider.value);
+
+		int controlType = PlayerPrefs.GetInt ("ControlType");
+
+		if (controlType == 0)
+		{
+			joystickToggle.isOn = true;
+		} 
+		else if (controlType == 1)
+		{
+			tiltToggle.isOn = true;
+		} 
+		else 
+		{
+			keysToggle.isOn = true;
+		}
+
+		float value = PlayerPrefs.GetFloat ("ControlSensitivity");
+		controlSensitivitySlider.value = value;
 	}
 	
 	public void joystickToggleStateChanged ()
@@ -27,15 +51,16 @@ public class SettingsScript : MonoBehaviour
 		if (joystickToggle.isOn)
 		{
 			controllType = ControllType.joystick;
-			tiltToggle.isOn = false;
-		}
-		else 
-		{
-			controllType = ControllType.tilt;
-			tiltToggle.isOn = true;
-		}
 
-		PlayerPrefs.SetInt ("ControlType", (int) controllType);
+			tiltToggle.isOn = false;
+			keysToggle.isOn = false;
+
+			Debug.Log ("Joystick");
+
+			PlayerPrefs.SetInt ("ControlType", (int) controllType);
+		} 
+
+		return;
 	}
 
 	public void tiltToggleStateChanged ()
@@ -43,15 +68,44 @@ public class SettingsScript : MonoBehaviour
 		if (tiltToggle.isOn)
 		{
 			controllType = ControllType.tilt;
+
 			joystickToggle.isOn = false;
+			keysToggle.isOn = false;
+
+			Debug.Log ("Tilt");
+			
+			PlayerPrefs.SetInt ("ControlType", (int) controllType);
 		}
-		else 
+
+		return;
+	}
+
+	public void keysToggleStateChanged ()
+	{
+		if (keysToggle.isOn)
 		{
-			controllType = ControllType.joystick;
-			joystickToggle.isOn = true;
+			controllType = ControllType.keys;
+
+			joystickToggle.isOn = false;
+			tiltToggle.isOn = false;
+
+			Debug.Log ("Keys");
+			
+			PlayerPrefs.SetInt ("ControlType", (int) controllType);
 		}
-		
-		PlayerPrefs.SetInt ("ControlType", (int) controllType);
+
+		return;
+	}
+
+	public void controlSensitivityChanged ()
+	{
+		float value = controlSensitivitySlider.value;
+
+		Debug.Log ("Control Sensitivity changed to " + value);
+
+		PlayerPrefs.SetFloat ("ControlSensitivity", value);
+
+		return;
 	}
 
 	public void audioToggleStateChanged ()

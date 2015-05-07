@@ -12,8 +12,8 @@ public class Boundary
 
 public class PlayerMovement : MonoBehaviour
 {
-	public enum ControllType {joystick, tilt, keys};
-	public ControllType controllType = 0;
+	public enum ControlType {joystick, tilt, keys};
+	public ControlType controlType = 0;
 	public Joystick moveJoystick;
 
 	public float speed = 10;
@@ -34,30 +34,34 @@ public class PlayerMovement : MonoBehaviour
 
 //		Debug.Log ("Screen size: " + Size.x + "x" + Size.y);
 
-		int controll = PlayerPrefs.GetInt ("ControlType");
+		int control = PlayerPrefs.GetInt ("ControlType");
+		float controlSensitivity = PlayerPrefs.GetFloat ("ControlSensitivity");
 
-		if (controll == 0)
+		if (control == 0)
 		{
-			controllType = ControllType.joystick;
+			controlType = ControlType.joystick;
+			speed = controlSensitivity * 2;
 		} 
-		else if (controll == 1)
+		else if (control == 1)
 		{
-			controllType = ControllType.tilt;
+			controlType = ControlType.tilt;
+			speed = controlSensitivity * 3;
 		} 
 		else 
 		{
-			controllType = ControllType.keys;
+			controlType = ControlType.keys;
+			speed = controlSensitivity * 2;
 		}
 	}
 
 	void FixedUpdate ()
 	{
-		if (controllType == ControllType.joystick) 
+		if (controlType == ControlType.joystick) 
 		{
 			moveHorizontal = moveJoystick.position.x;
 			moveVertical = moveJoystick.position.y;
 		}
-		else if (controllType == ControllType.tilt) 
+		else if (controlType == ControlType.tilt) 
 		{
 			moveJoystick.Disable();
 			moveHorizontal = Input.acceleration.x;
