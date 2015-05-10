@@ -16,7 +16,12 @@ public class ShootScript : MonoBehaviour
 			nextFire = Time.time + fireRate;
 			Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
 
-			GetComponent<AudioSource>().Play();
+			int audioEnabled = PlayerPrefs.GetInt("AudioEnabled");
+
+			if (audioEnabled == 1)
+			{
+				GetComponent<AudioSource>().Play();
+			}
 		}
 	}
 }
