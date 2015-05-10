@@ -44,17 +44,6 @@ public class SettingsScript : MonoBehaviour
 
 		float value = PlayerPrefs.GetFloat ("ControlSensitivity");
 		controlSensitivitySlider.value = value;
-
-		int audioEnabled = PlayerPrefs.GetInt ("AudioEnabled");
-		
-		if (audioEnabled == 1)
-		{
-			audioToggle.isOn = true;
-		}
-		else
-		{
-			audioToggle.isOn = false;
-		}
 	}
 	
 	public void joystickToggleStateChanged ()
