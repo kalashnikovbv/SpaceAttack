@@ -53,14 +53,11 @@
      <Compile Include="Assets\_Scripts\DestroyByTime.cs" />
      <Compile Include="Assets\_Scripts\DirectMove.cs" />
      <Compile Include="Assets\_Scripts\GameController.cs" />
-     <Compile Include="Assets\_Scripts\GameOver.cs" />
-     <Compile Include="Assets\_Scripts\HealthMeter.cs" />
      <Compile Include="Assets\_Scripts\Joystick.cs" />
      <Compile Include="Assets\_Scripts\MainMenuNavigatior.cs" />
      <Compile Include="Assets\_Scripts\MusicController.cs" />
      <Compile Include="Assets\_Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\_Scripts\RandomRotator.cs" />
-     <Compile Include="Assets\_Scripts\ScoreCounter.cs" />
      <Compile Include="Assets\_Scripts\SettingsScript.cs" />
      <Compile Include="Assets\_Scripts\ShootScript.cs" />
      <Compile Include="Assets\_Scripts\SkyBoxRotation.cs" />

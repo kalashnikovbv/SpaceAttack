@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class GameController : MonoBehaviour 
@@ -11,8 +12,19 @@ public class GameController : MonoBehaviour
 	public float startWait;
 	public float waveWait;
 
-	int numberOfWaves = 5;
 	const string kHealth = "Health";
+	const string kScore = "Score";
+	
+	public Text GameLabel;
+	public Text HealthText;
+	public Text ScoreText;
+
+	int health = 100;
+	int score = 0;
+
+	int numberOfWaves = 5;
+	bool levelIsRunning = true;
+	bool spawningWaves = true;
 
 	void Start ()
 	{
@@ -20,16 +32,41 @@ public class GameController : MonoBehaviour
 //		spawnValues.x = Mathf.Floor (Size.x);
 
 //		StartCoroutine (SpawnWaves ());
+
+		health = 100;
+		score = 0;
+
+		PlayerPrefs.SetInt (kHealth, health);
+		PlayerPrefs.SetInt (kScore, score);
+
+		levelIsRunning = true;
 		StartCoroutine ("SpawnWaves");
+
+		GameLabel.text = "";
 	}
 
 	void Update ()
 	{
-		int playerHealth = PlayerPrefs.GetInt (kHealth);
+		health = PlayerPrefs.GetInt (kHealth);
+		score = PlayerPrefs.GetInt (kScore);
 
-		if (playerHealth == 0) 
+		HealthText.text = "Health: " + health;
+		ScoreText.text = "Score: " + score;
+
+		if (health == 0 && levelIsRunning) 
 		{
+			GameLabel.text = "Game Over";
+			levelIsRunning = false;
+
 			StopCoroutine ("SpawnWaves");
+
+			StartCoroutine ("FinishLevel");
+		}
+
+		if (! spawningWaves && levelIsRunning)
+		{
+			GameLabel.text = "Well Done";
+			levelIsRunning = false;
 
 			StartCoroutine ("FinishLevel");
 		}
@@ -37,6 +74,8 @@ public class GameController : MonoBehaviour
 	
 	IEnumerator SpawnWaves ()
 	{
+		spawningWaves = true;
+
 		yield return new WaitForSeconds (startWait);
 
 		for (int wave = 0; wave < numberOfWaves; wave++)
@@ -53,11 +92,21 @@ public class GameController : MonoBehaviour
 
 			yield return new WaitForSeconds (waveWait);
 		}
+
+		spawningWaves = false;
+	}
+
+	void FadeOutLevelMusic ()
+	{
+		MusicController musicController = (MusicController) this.GetComponent (typeof (MusicController));
+		musicController.FadeOutMusic ();
 	}
 
 	IEnumerator FinishLevel ()
 	{
+		this.FadeOutLevelMusic ();
 		yield return new WaitForSeconds (5.0F);
-		Debug.Log ("Level Ended");
+
+		Application.LoadLevel ("MainMenu");
 	}
 }

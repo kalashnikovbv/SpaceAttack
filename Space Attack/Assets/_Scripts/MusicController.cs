@@ -25,7 +25,7 @@ public class MusicController : MonoBehaviour
 		}
 	}
 	
-	public void FadeMusic ()
+	public void FadeOutMusic ()
 	{
 		StartCoroutine(FadeAudio(2.0F, Fade.Out));
 	}
