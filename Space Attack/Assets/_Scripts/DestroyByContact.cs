@@ -42,12 +42,12 @@ public class DestroyByContact : MonoBehaviour
 		} 
 		else
 		{
+			Debug.Log ("Player's ship is destroyed");
+
 			currentHealth = 0;
 
 			Destroy(player.gameObject);
 			Instantiate (playerExplosion, player.transform.position, player.transform.rotation);
-
-			Application.LoadLevel("MainMenu");
 		}
 
 		PlayerPrefs.SetInt (kHealth, currentHealth);

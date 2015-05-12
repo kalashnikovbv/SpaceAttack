@@ -6,7 +6,6 @@ public class MusicController : MonoBehaviour
 	enum Fade {In, Out};
 	float fadeTime = 10.0F;
 	
-	
 	void Start ()
 	{
 		StartCoroutine (FadeAudio (fadeTime, Fade.In));
