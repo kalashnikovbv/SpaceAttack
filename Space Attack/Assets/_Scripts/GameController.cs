@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour
 	int health = 100;
 	int score = 0;
 
-	int numberOfWaves = 5;
+	int numberOfWaves = 10;
 	bool levelIsRunning = true;
 	bool spawningWaves = true;
 
