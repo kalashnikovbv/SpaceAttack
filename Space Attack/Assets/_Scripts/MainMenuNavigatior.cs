@@ -4,17 +4,15 @@ using System.Collections;
 public class MainMenuNavigatior : MonoBehaviour
 {
 	public GameObject mainMenuPanel;
+
 	public GameObject selectLavelPanel;
 	public GameObject howToPlayPanel;
 	public GameObject settingsPanel;
+	public GameObject highScorePanel;
 
 	void Start ()
 	{
-		mainMenuPanel.SetActive (true);
-		selectLavelPanel.SetActive (false);
-		howToPlayPanel.SetActive (false);
-		settingsPanel.SetActive (false);
-
+		ShowMainMenuPanel ();
 	}
 
 	public void OpenSelectLevelPanel ()
@@ -35,16 +33,29 @@ public class MainMenuNavigatior : MonoBehaviour
 		settingsPanel.SetActive (true);
 	}
 
+	public void OpenHighScorePanel ()
+	{
+		mainMenuPanel.SetActive (false);
+		highScorePanel.SetActive (true);
+	}
+
 	public void ReturnToMainMenu ()
 	{
-		mainMenuPanel.SetActive (true);
-		selectLavelPanel.SetActive (false);
-		howToPlayPanel.SetActive (false);
-		settingsPanel.SetActive (false);
+		ShowMainMenuPanel ();
 	}
 
 	public void StartLevel (string sceneName)
 	{
 		Application.LoadLevel (sceneName);
+	}
+
+	private void ShowMainMenuPanel ()
+	{
+		mainMenuPanel.SetActive (true);
+		
+		selectLavelPanel.SetActive (false);
+		howToPlayPanel.SetActive (false);
+		settingsPanel.SetActive (false);
+		highScorePanel.SetActive (false);
 	}
 }

@@ -21,6 +21,7 @@ public class GameController : MonoBehaviour
 
 	int health = 100;
 	int score = 0;
+	int level = 1;
 
 	int numberOfWaves = 10;
 	bool levelIsRunning = true;
@@ -67,6 +68,13 @@ public class GameController : MonoBehaviour
 		{
 			GameLabel.text = "Well Done";
 			levelIsRunning = false;
+
+			int highScore = PlayerPrefs.GetInt ("Level" + level + "Score");
+
+			if (score > highScore)
+			{
+				PlayerPrefs.SetInt ("Level" + level + "Score", score);
+			}
 
 			StartCoroutine ("FinishLevel");
 		}

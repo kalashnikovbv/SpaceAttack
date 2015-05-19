@@ -58,6 +58,7 @@
      <Compile Include="Assets\_Scripts\MusicController.cs" />
      <Compile Include="Assets\_Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\_Scripts\RandomRotator.cs" />
+     <Compile Include="Assets\_Scripts\ScoreDisplay.cs" />
      <Compile Include="Assets\_Scripts\SettingsScript.cs" />
      <Compile Include="Assets\_Scripts\ShootScript.cs" />
      <Compile Include="Assets\_Scripts\SkyBoxRotation.cs" />
