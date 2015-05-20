@@ -103,8 +103,8 @@ public class GameController : MonoBehaviour
 			{
 				Vector3 spawnPosition = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
 
-				Quaternion spawnRotation = Quaternion.identity;
-				Instantiate (hazard, spawnPosition, spawnRotation);
+				//Quaternion spawnRotation = new Quaternion(0,180,0,0);
+				Instantiate (hazard, spawnPosition, hazard.transform.rotation);
 
 				yield return new WaitForSeconds (spawnWait);
 			}
