@@ -1,12 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Scripts/SettingsScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Scripts/GameController.cs">
     <Files>
-      <File FileName="Assets/_Scripts/GameController.cs" Line="76" Column="48" />
+      <File FileName="Assets/_Scripts/GameController.cs" Line="56" Column="50" />
       <File FileName="Assets/_Scripts/MusicController.cs" Line="1" Column="1" />
-      <File FileName="Assets/_Scripts/MainMenuNavigatior.cs" Line="40" Column="3" />
-      <File FileName="Assets/_Scripts/ScoreDisplay.cs" Line="15" Column="54" />
+      <File FileName="Assets/_Scripts/MainMenuNavigatior.cs" Line="1" Column="1" />
+      <File FileName="Assets/_Scripts/ScoreDisplay.cs" Line="1" Column="1" />
       <File FileName="Assets/_Scripts/SettingsScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/_Scripts/ShootScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/_Scripts/LevelSelector.cs" Line="20" Column="34" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

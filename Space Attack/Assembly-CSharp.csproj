@@ -54,6 +54,7 @@
      <Compile Include="Assets\_Scripts\DirectMove.cs" />
      <Compile Include="Assets\_Scripts\GameController.cs" />
      <Compile Include="Assets\_Scripts\Joystick.cs" />
+     <Compile Include="Assets\_Scripts\LevelSelector.cs" />
      <Compile Include="Assets\_Scripts\MainMenuNavigatior.cs" />
      <Compile Include="Assets\_Scripts\MusicController.cs" />
      <Compile Include="Assets\_Scripts\PlayerMovement.cs" />

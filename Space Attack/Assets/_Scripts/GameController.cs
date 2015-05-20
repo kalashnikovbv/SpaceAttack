@@ -12,20 +12,25 @@ public class GameController : MonoBehaviour
 	public float startWait;
 	public float waveWait;
 
+	public int numberOfWaves = 10;
+
 	const string kHealth = "Health";
 	const string kScore = "Score";
 	
 	public Text GameLabel;
 	public Text HealthText;
 	public Text ScoreText;
+	public Text InfoText;
 
 	int health = 100;
 	int score = 0;
-	int level = 1;
 
-	int numberOfWaves = 10;
+	public int level = 1;
+	
 	bool levelIsRunning = true;
 	bool spawningWaves = true;
+
+	double timeToWait = 5.0F;
 
 	void Start ()
 	{
@@ -48,6 +53,11 @@ public class GameController : MonoBehaviour
 
 	void Update ()
 	{
+		if ((Time.time > timeToWait) && levelIsRunning)
+		{
+			InfoText.text = "";
+		}
+
 		health = PlayerPrefs.GetInt (kHealth);
 		score = PlayerPrefs.GetInt (kScore);
 
@@ -74,6 +84,7 @@ public class GameController : MonoBehaviour
 			if (score > highScore)
 			{
 				PlayerPrefs.SetInt ("Level" + level + "Score", score);
+				InfoText.text = "You've set a new record";
 			}
 
 			StartCoroutine ("FinishLevel");
@@ -107,7 +118,9 @@ public class GameController : MonoBehaviour
 	void FadeOutLevelMusic ()
 	{
 		MusicController musicController = (MusicController) this.GetComponent (typeof (MusicController));
-		musicController.FadeOutMusic ();
+
+		float fadeOutTime = 4.0F;
+		musicController.FadeOutMusic (fadeOutTime);
 	}
 
 	IEnumerator FinishLevel ()
