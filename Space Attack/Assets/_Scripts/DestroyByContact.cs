@@ -14,21 +14,33 @@ public class DestroyByContact : MonoBehaviour
 	{
 		if (other.tag == "Boundary")
 		{
-			return; // ends the execution of a function
+			//Do nothing and return
+			return;
 		}
-
-		Instantiate (explosion, transform.position, transform.rotation);
-
-		if (other.tag == "Player") 
+		else if (other.tag == "Player")
 		{
+			Instantiate (explosion, transform.position, transform.rotation);
+
 			PlayerDamage (other);
+			Destroy (gameObject);
+		} 
+		else if ((other.tag == "EnemyShot") || (other.tag == "EnemyDroid"))
+		{
+			//No friendly fire
+		} 
+		else 
+		{
+			Debug.Log (gameObject.name + "" + other.name);
+			Instantiate (explosion, transform.position, transform.rotation);
+
+			int currentScore = PlayerPrefs.GetInt (kScore);
+			currentScore += score;
+			PlayerPrefs.SetInt (kScore, currentScore);
+
+			Destroy (gameObject);
 		}
 
-		int currentScore = PlayerPrefs.GetInt (kScore);
-		currentScore += score;
-		PlayerPrefs.SetInt (kScore, currentScore);
 
-		Destroy(gameObject);
 	}
 
 	void PlayerDamage (Collider player)

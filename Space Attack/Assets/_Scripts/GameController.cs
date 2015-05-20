@@ -90,6 +90,11 @@ public class GameController : MonoBehaviour
 			StartCoroutine ("FinishLevel");
 		}
 	}
+
+	public bool LevelIsRunning ()
+	{
+		return this.levelIsRunning;
+	}
 	
 	IEnumerator SpawnWaves ()
 	{

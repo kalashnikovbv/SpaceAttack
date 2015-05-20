@@ -47,12 +47,10 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\_Scripts\AudioSwitch.cs" />
-     <Compile Include="Assets\_Scripts\BoltMovement.cs" />
      <Compile Include="Assets\_Scripts\BoundaryDestroy.cs" />
      <Compile Include="Assets\_Scripts\DestroyByContact.cs" />
      <Compile Include="Assets\_Scripts\DestroyByTime.cs" />
      <Compile Include="Assets\_Scripts\DirectMove.cs" />
-     <Compile Include="Assets\_Scripts\EnemyBoltMovement.cs" />
      <Compile Include="Assets\_Scripts\EnemyController.cs" />
      <Compile Include="Assets\_Scripts\GameController.cs" />
      <Compile Include="Assets\_Scripts\Joystick.cs" />

@@ -3,6 +3,8 @@ using System.Collections;
 
 public class ShootScript : MonoBehaviour 
 {
+	public GameController gameController;
+
 	public GameObject shot;
 	public Transform shotSpawn;
 
@@ -11,7 +13,7 @@ public class ShootScript : MonoBehaviour
 	
 	void Update ()
 	{
-		if (Time.time > nextFire)
+		if ((Time.time > nextFire) && gameController.LevelIsRunning())
 		{
 			nextFire = Time.time + fireRate;
 			Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
