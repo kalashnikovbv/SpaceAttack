@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour
 	bool levelIsRunning = true;
 	bool spawningWaves = true;
 
-	double timeToWait = 5.0F;
+	double timeToWait = 7.0F;
 
 	void Start ()
 	{
@@ -49,6 +49,23 @@ public class GameController : MonoBehaviour
 		StartCoroutine ("SpawnWaves");
 
 		GameLabel.text = "";
+
+		if (level == 1)
+		{
+			InfoText.text = "Warning! Asteroids ahead";
+		}
+		else if (level == 2)
+		{
+			InfoText.text = "Look Out! Enemies are coming";
+		}
+		else if (level == 3)
+		{
+			InfoText.text = "Prepare for battle!";
+		} 
+		else
+		{
+			InfoText.text = "Get Ready!";
+		}
 	}
 
 	void Update ()

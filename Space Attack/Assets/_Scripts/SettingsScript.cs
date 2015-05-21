@@ -34,7 +34,15 @@ public class SettingsScript : MonoBehaviour
 		}
 
 		float value = PlayerPrefs.GetFloat ("ControlSensitivity");
-		controlSensitivitySlider.value = value;
+
+		if ((value > 0) && (value <= 10)) {
+			controlSensitivitySlider.value = value;
+		} else {
+			value = 5.0F;
+
+			controlSensitivitySlider.value = value;
+			PlayerPrefs.SetFloat("ControlSensitivity", value);
+		}
 
 		int audioEnabled = PlayerPrefs.GetInt ("AudioEnabled");
 		
