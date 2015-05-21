@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour
 	bool levelIsRunning = true;
 	bool spawningWaves = true;
 
-	double timeToWait = 7.0F;
+	double timeToWait = 5.0F;
 
 	void Start ()
 	{
