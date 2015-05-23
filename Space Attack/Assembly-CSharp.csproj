@@ -51,6 +51,7 @@
      <Compile Include="Assets\_Scripts\DestroyByContact.cs" />
      <Compile Include="Assets\_Scripts\DestroyByTime.cs" />
      <Compile Include="Assets\_Scripts\DirectMove.cs" />
+     <Compile Include="Assets\_Scripts\EnemyBossController.cs" />
      <Compile Include="Assets\_Scripts\EnemyController.cs" />
      <Compile Include="Assets\_Scripts\GameController.cs" />
      <Compile Include="Assets\_Scripts\Joystick.cs" />

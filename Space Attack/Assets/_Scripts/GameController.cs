@@ -50,25 +50,32 @@ public class GameController : MonoBehaviour
 		PlayerPrefs.SetInt (kScore, score);
 
 		levelIsRunning = true;
-		StartCoroutine ("SpawnWaves");
 
 		GameLabel.text = "";
 
 		if (level == 1)
 		{
 			InfoText.text = "Warning! Asteroids ahead";
+
+			StartCoroutine ("SpawnWaves");
 		}
 		else if (level == 2)
 		{
 			InfoText.text = "Look Out! Enemies are coming";
+
+			StartCoroutine ("SpawnWaves");
 		}
 		else if (level == 3)
 		{
 			InfoText.text = "Prepare for battle!";
+
+			StartSpawningWaves ();
 		} 
 		else
 		{
 			InfoText.text = "Get Ready!";
+
+			StartCoroutine ("SpawnWaves");
 		}
 	}
 
@@ -138,6 +145,16 @@ public class GameController : MonoBehaviour
 			yield return new WaitForSeconds (waveWait);
 		}
 
+		spawningWaves = false;
+	}
+
+	void StartSpawningWaves ()
+	{
+		spawningWaves = true;
+	}
+
+	public void EndSpawningWaves ()
+	{
 		spawningWaves = false;
 	}
 

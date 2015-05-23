@@ -14,7 +14,8 @@ public class EnemyController : MonoBehaviour
 	
 	void Update ()
 	{
-		if (Time.time > nextFire) {
+		if (Time.time > nextFire)
+		{
 			nextFire = Time.time + fireRate;
 
 			if (leftCannonShoot)

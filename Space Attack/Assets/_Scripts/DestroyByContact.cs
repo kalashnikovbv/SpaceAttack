@@ -30,7 +30,6 @@ public class DestroyByContact : MonoBehaviour
 		} 
 		else 
 		{
-			Debug.Log (gameObject.name + "" + other.name);
 			Instantiate (explosion, transform.position, transform.rotation);
 
 			int currentScore = PlayerPrefs.GetInt (kScore);
@@ -39,8 +38,6 @@ public class DestroyByContact : MonoBehaviour
 
 			Destroy (gameObject);
 		}
-
-
 	}
 
 	void PlayerDamage (Collider player)
