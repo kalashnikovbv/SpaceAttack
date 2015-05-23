@@ -32,6 +32,8 @@ public class GameController : MonoBehaviour
 
 	double timeToWait = 5.0F;
 
+	MusicController musicController;
+
 	void Start ()
 	{
 //		Vector3 Size = Camera.main.ScreenToWorldPoint(new Vector3 (Screen.width, 0, 0));	
@@ -41,6 +43,8 @@ public class GameController : MonoBehaviour
 
 		health = 100;
 		score = 0;
+
+		musicController = (MusicController) GetComponent (typeof (MusicController));
 
 		PlayerPrefs.SetInt (kHealth, health);
 		PlayerPrefs.SetInt (kScore, score);
@@ -137,12 +141,20 @@ public class GameController : MonoBehaviour
 		spawningWaves = false;
 	}
 
-	void FadeOutLevelMusic ()
+	public void FadeOutLevelMusic ()
 	{
-		MusicController musicController = (MusicController) this.GetComponent (typeof (MusicController));
-
 		float fadeOutTime = 4.0F;
 		musicController.FadeOutMusic (fadeOutTime);
+	}
+
+	public void PlayMusic ()
+	{
+		GetComponent<AudioSource> ().Play ();
+	}
+
+	public void PauseMusic ()
+	{
+		GetComponent<AudioSource> ().Pause ();
 	}
 
 	IEnumerator FinishLevel ()

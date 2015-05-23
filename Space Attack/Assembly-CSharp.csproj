@@ -57,6 +57,7 @@
      <Compile Include="Assets\_Scripts\LevelSelector.cs" />
      <Compile Include="Assets\_Scripts\MainMenuNavigatior.cs" />
      <Compile Include="Assets\_Scripts\MusicController.cs" />
+     <Compile Include="Assets\_Scripts\PauseMenuController.cs" />
      <Compile Include="Assets\_Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\_Scripts\RandomRotator.cs" />
      <Compile Include="Assets\_Scripts\ScoreDisplay.cs" />

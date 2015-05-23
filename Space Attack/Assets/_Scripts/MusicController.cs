@@ -32,7 +32,6 @@ public class MusicController : MonoBehaviour
 
 	IEnumerator FadeAudio (float timer, Fade fadeType)
 	{
-		Debug.Log ("FadeAudio");
 		float start = (fadeType == Fade.In) ? 0.0F : 0.5F;
 		float end = (fadeType == Fade.In) ? 0.5F : 0.0F;
 		float i = 0.0F;
@@ -43,7 +42,8 @@ public class MusicController : MonoBehaviour
 			i += step * Time.deltaTime;
 			
 			GetComponent<AudioSource> ().volume = Mathf.Lerp(start, end, i);
-			yield return new WaitForSeconds(step * Time.deltaTime);
+
+			yield return new WaitForSeconds (step * Time.deltaTime);
 		}
 	}
 }
