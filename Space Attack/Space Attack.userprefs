@@ -1,11 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Scripts/EnemyBossController.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Scripts/GameController.cs">
     <Files>
-      <File FileName="Assets/_Scripts/DestroyByContact.cs" Line="10" Column="32" />
-      <File FileName="Assets/_Scripts/EnemyBossController.cs" Line="89" Column="3" />
-      <File FileName="Assets/_Scripts/EnemyController.cs" Line="27" Column="68" />
-      <File FileName="Assets/_Scripts/GameController.cs" Line="72" Column="26" />
+      <File FileName="Assets/_Scripts/MainMenuNavigatior.cs" Line="54" Column="33" />
+      <File FileName="Assets/_Scripts/EnemyController.cs" Line="18" Column="4" />
+      <File FileName="Assets/_Scripts/EnemyBossController.cs" Line="1" Column="1" />
+      <File FileName="Assets/_Scripts/PauseMenuController.cs" Line="49" Column="33" />
+      <File FileName="Assets/_Scripts/GameController.cs" Line="43" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

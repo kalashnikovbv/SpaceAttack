@@ -5,11 +5,14 @@ using System.Collections;
 public class PauseMenuController : MonoBehaviour
 {
 	public GameObject pauseMenuPanel;
-
 	public GameController gameController;
+
+	public Text loadingText;
 
 	void Start ()
 	{
+		loadingText.text = "";
+
 		pauseMenuPanel.SetActive (false);
 	}
 
@@ -43,7 +46,9 @@ public class PauseMenuController : MonoBehaviour
 
 	public void quitLevel ()
 	{
+		loadingText.text = "Loading...";
 		Time.timeScale = 1.0F;
+
 		Application.LoadLevel ("MainMenu");
 	}
 }

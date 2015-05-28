@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class MainMenuNavigatior : MonoBehaviour
@@ -10,8 +11,12 @@ public class MainMenuNavigatior : MonoBehaviour
 	public GameObject settingsPanel;
 	public GameObject highScorePanel;
 
+	public Text loadingText;
+
 	void Start ()
 	{
+		loadingText.text = "";
+
 		ShowMainMenuPanel ();
 	}
 
@@ -46,6 +51,8 @@ public class MainMenuNavigatior : MonoBehaviour
 
 	public void StartLevel (string sceneName)
 	{
+		loadingText.text = "Loading...";
+
 		Application.LoadLevel (sceneName);
 	}
 
